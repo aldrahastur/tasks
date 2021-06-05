@@ -35,23 +35,7 @@
                 </div> Sales report is ready</a><a class="dropdown-item" href="#">
                 <div class="c-icon mfe-2 text-success">
                     <i class="fas fa-cart-plus"></i>
-                </div> New client</a><a class="dropdown-item" href="#">
-                <div class="c-icon mfe-2 text-warning">
-                    <i class="fas fa-tachometer-alt"></i>
-                </div> Server overloaded</a>
-            <div class="dropdown-header bg-light"><strong>Server</strong></div><a class="dropdown-item d-block" href="#">
-                <div class="text-uppercase mb-1"><small><b>CPU Usage</b></small></div><span class="progress progress-xs">
-<div class="progress-bar bg-info" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-</span><small class="text-muted">348 Processes. 1/4 Cores.</small>
-            </a><a class="dropdown-item d-block" href="#">
-                <div class="text-uppercase mb-1"><small><b>Memory Usage</b></small></div><span class="progress progress-xs">
- <div class="progress-bar bg-warning" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-</span><small class="text-muted">11444GB/16384MB</small>
-            </a><a class="dropdown-item d-block" href="#">
-                <div class="text-uppercase mb-1"><small><b>SSD 1 Usage</b></small></div><span class="progress progress-xs">
-<div class="progress-bar bg-danger" role="progressbar" style="width: 95%" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
-</span><small class="text-muted">243GB/256GB</small>
-            </a>
+                </div> New client</a>
         </div>
     </li>
     <li class="c-header-nav-item dropdown d-md-down-none mx-2"><a class="c-header-nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">

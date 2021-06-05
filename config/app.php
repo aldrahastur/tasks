@@ -176,7 +176,7 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         /**
-         * kriteas customizing
+         * kriteas customization
          */
 
         Thomaswelton\LaravelGravatar\LaravelGravatarServiceProvider::class
@@ -235,7 +235,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
          /**
-          * kriteas customizing
+          * kriteas customization
           */
 
         'Gravatar' => Thomaswelton\LaravelGravatar\Facades\Gravatar::class

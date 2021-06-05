@@ -17,10 +17,10 @@
         <a class="c-sidebar-nav-dropdown-toggle" href="#">
             <div class="c-sidebar-nav-icon">
                 <i class="fas fa-puzzle-piece"></i>
-            </div> Base
+            </div> Admin
         </a>
         <ul class="c-sidebar-nav-dropdown-items">
-            <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="base/breadcrumb.html"> Breadcrumb</a></li>
+            <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="{{ route('admin.pages.index') }}"> Breadcrumb</a></li>
         </ul>
     </li>
     <div class="ps__rail-x" style="left: 0px; bottom: 0px;">
