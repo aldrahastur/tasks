@@ -11,7 +11,9 @@
     <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/">
             <div class="c-sidebar-nav-icon">
                 <i class="fas fa-home"></i>
-            </div> Dashboard<span class="badge badge-info">NEW</span></a></li>
+            </div> Dashboard<span class="badge badge-info">NEW</span></a>
+    </li>
+    @if(\Illuminate\Support\Facades\Auth::user()->is_admin)
     <li class="c-sidebar-nav-title">Components</li>
     <li class="c-sidebar-nav-dropdown">
         <a class="c-sidebar-nav-dropdown-toggle" href="#">
@@ -23,6 +25,7 @@
             <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="{{ route('admin.pages.index') }}"> Breadcrumb</a></li>
         </ul>
     </li>
+    @endif
     <div class="ps__rail-x" style="left: 0px; bottom: 0px;">
         <div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div>
     </div>

@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\ChecklistController;
+use App\Http\Controllers\Admin\ChecklistGroupController;
 use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Admin\RoleController;
@@ -29,5 +31,7 @@ Route::group(['middleware'=>'auth'], function () {
         Route::resource('pages', PageController::class);
         Route::resource('roles', RoleController::class);
         Route::resource('permissions', PermissionController::class);
+        Route::resource('checklists', ChecklistController::class);
+        Route::resource('checklist_group', ChecklistGroupController::class);
     });
 });
