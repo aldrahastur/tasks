@@ -175,6 +175,12 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        /**
+         * kriteas customizing
+         */
+
+        Thomaswelton\LaravelGravatar\LaravelGravatarServiceProvider::class
+
     ],
 
     /*
@@ -228,6 +234,11 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
+         /**
+          * kriteas customizing
+          */
+
+        'Gravatar' => Thomaswelton\LaravelGravatar\Facades\Gravatar::class
     ],
 
 ];
