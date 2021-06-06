@@ -25,7 +25,7 @@ class StoreChecklistRequest extends FormRequest
     public function rules()
     {
         return [
-           'name' => 'require'
+           'name' => 'required'
         ];
     }
 }
