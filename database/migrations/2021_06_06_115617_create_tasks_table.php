@@ -15,7 +15,12 @@ class CreateTasksTable extends Migration
     {
         Schema::create('tasks', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('checklist_id')->constrained();
+            $table->string('name');
+            $table->longText('description')->nullable();
+            $table->dateTime('due_at')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

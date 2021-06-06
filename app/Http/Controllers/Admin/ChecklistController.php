@@ -6,6 +6,10 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreChecklistRequest;
 use App\Models\Checklist;
 use App\Models\ChecklistGroup;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
 class ChecklistController extends Controller
@@ -23,7 +27,7 @@ class ChecklistController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @return Application|Factory|View
      */
     public function create(ChecklistGroup $checklistGroup)
     {
@@ -33,9 +37,9 @@ class ChecklistController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param \App\Models\ChecklistGroup $checklistGroup
-     * @param \App\Http\Requests\StoreChecklistRequest $request
-     * @return \Illuminate\Http\RedirectResponse
+     * @param ChecklistGroup $checklistGroup
+     * @param StoreChecklistRequest $request
+     * @return RedirectResponse
      */
     public function store(ChecklistGroup $checklistGroup, StoreChecklistRequest $request)
     {
@@ -48,11 +52,11 @@ class ChecklistController extends Controller
      *
      * @param \App\Models\ChecklistGroup $checklistGroup
      * @param Checklist $checklist
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @return Application|Factory|View
      */
     public function show(ChecklistGroup $checklistGroup, Checklist $checklist)
     {
-        return view('admin.checklist.show', compact('checklist'));
+        return view('admin.checklist.show', compact('checklistGroup','checklist'));
     }
 
     /**
@@ -60,7 +64,7 @@ class ChecklistController extends Controller
      *
      * @param \App\Models\ChecklistGroup $checklistGroup
      * @param \App\Models\Checklist $checklist
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @return Application|Factory|View
      */
     public function edit(ChecklistGroup $checklistGroup, Checklist $checklist)
     {
@@ -71,9 +75,9 @@ class ChecklistController extends Controller
      * Update the specified resource in storage.
      *
      * @param \App\Models\ChecklistGroup $checklistGroup
-     * @param \App\Http\Requests\StoreChecklistRequest $request
+     * @param StoreChecklistRequest $request
      * @param \App\Models\Checklist $checklist
-     * @return \Illuminate\Http\RedirectResponse
+     * @return RedirectResponse
      */
     public function update(ChecklistGroup $checklistGroup, StoreChecklistRequest $request, Checklist $checklist)
     {
@@ -86,7 +90,7 @@ class ChecklistController extends Controller
      *
      * @param \App\Models\ChecklistGroup $checklistGroup
      * @param \App\Models\Checklist $checklist
-     * @return \Illuminate\Http\RedirectResponse
+     * @return RedirectResponse
      */
     public function destroy(ChecklistGroup $checklistGroup, Checklist $checklist)
     {

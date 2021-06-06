@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\ChecklistGroupController;
 use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Admin\RoleController;
+use App\Http\Controllers\TaskController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,5 +34,6 @@ Route::group(['middleware'=>'auth'], function () {
         Route::resource('permissions', PermissionController::class);
         Route::resource('checklist-groups', ChecklistGroupController::class);
         Route::resource('checklist-groups.checklists', ChecklistController::class);
+        Route::resource('checklists.tasks', TaskController::class);
     });
 });

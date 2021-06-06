@@ -18,7 +18,7 @@
                                 {{ __('Delete') }}
                             </button>
                         </form>
-                        <a href="{{ route('admin.checklists.tasks.create', $checklist) }}" class="btn btn-success">
+                        <a href="{{ route('admin.checklists.tasks.create', $checklistGroup) }}" class="btn btn-success">
                             {{ __('Create Tasks') }}
                         </a>
                     </div>

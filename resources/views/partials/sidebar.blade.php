@@ -33,7 +33,7 @@
                 <ul class="c-sidebar-nav-dropdown-items">
                     <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="{{ route('admin.checklist-groups.checklists.create', $group) }}"> {{ __('New Checklist') }}</a></li>
                     @foreach($group->checklists as $checklist)
-                        <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="{{ route('admin.checklist-groups.checklists.edit', [$group,$checklist]) }}"> {{ $checklist->name }}</a></li>
+                        <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="{{ route('admin.checklist-groups.checklists.show', [$group,$checklist]) }}"> {{ $checklist->name }}</a></li>
                     @endforeach
                     <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="{{ route('admin.checklist-groups.edit', $group->id) }}">{{ __('Show ') }}  {{ $group->name }}</a></li>
                 </ul>
