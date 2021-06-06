@@ -25,6 +25,29 @@
 
                 </div>
             </div>
+            <hr>
+            <div class="card">
+                <div class="card-header">{{ __('List of Tasks') }}</div>
+                <div class="card-body">
+                    <table class="table table-responsive-sm">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Due At</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($checklist->tasks as $task)
+                            <tr>
+                                <td>{{$task->name}}</td>
+                                <td>{{$task->due_at}}</td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
         </div>
     </div>
 @endsection
