@@ -179,7 +179,8 @@ return [
          * kriteas customization
          */
 
-        Thomaswelton\LaravelGravatar\LaravelGravatarServiceProvider::class
+        Thomaswelton\LaravelGravatar\LaravelGravatarServiceProvider::class,
+        \SocialiteProviders\Manager\ServiceProvider::class
 
     ],
 

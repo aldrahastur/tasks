@@ -31,7 +31,7 @@ Route::group(['middleware'=>'auth'], function () {
         Route::resource('pages', PageController::class);
         Route::resource('roles', RoleController::class);
         Route::resource('permissions', PermissionController::class);
-        Route::resource('checklists', ChecklistController::class);
         Route::resource('checklist-groups', ChecklistGroupController::class);
+        Route::resource('checklist-groups.checklists', ChecklistController::class);
     });
 });
