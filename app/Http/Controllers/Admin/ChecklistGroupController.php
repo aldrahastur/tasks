@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreChecklistGroupRequest;
+use App\Models\ChecklistGroup;
 use Illuminate\Http\Request;
 
 class ChecklistGroupController extends Controller
@@ -20,22 +22,23 @@ class ChecklistGroupController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function create()
     {
-        //
+        return view('admin.checklistGroup.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(Request $request)
+    public function store(StoreChecklistGroupRequest $request)
     {
-        //
+        ChecklistGroup::create($request->validated());
+        return redirect()->route('home');
     }
 
     /**

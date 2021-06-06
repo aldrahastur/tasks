@@ -19,7 +19,14 @@
         @include('partials.header-menu')
     </header>
     <div class="c-body">
-        @yield('content')
+        <main class="c-main">
+            <div class="container-fluid">
+                <div class="fade-in">
+                    @yield('content')
+                </div>
+            </div>
+        </main>
+
     </div>
 
     <footer class="c-footer">
