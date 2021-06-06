@@ -6,7 +6,7 @@ It is in progress no features included yet
 Based on https://laraveldaily.teachable.com/p/creating-laravel-checklister
 
 # Features
-[x] Auth
+[checkbox:unchecked] Auth
 [x] Checklist Groups
 [x] Checklist
 [x] Tasks
@@ -20,5 +20,6 @@ Based on https://laraveldaily.teachable.com/p/creating-laravel-checklister
 * Laravel 8
 * Laravel UI with bootstrap and auth
 * Core UI as theme (will in future change)
+* Livewire
 * Fontawesome Free
 * Gravatar for Users

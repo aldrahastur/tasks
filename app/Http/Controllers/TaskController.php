@@ -44,7 +44,8 @@ class TaskController extends Controller
      */
     public function store(Checklist $checklist, SaveTaskRequest $request): RedirectResponse
     {
-        $checklist->tasks()->create($request->validated());
+        $position = $checklist->tasks()->max('position') + 1;
+        $checklist->tasks()->create($request->validated() + ['position' => $position]);
 
         return redirect()->route('admin.checklist-groups.checklists.show', [$checklist->checklist_group_id, $checklist]);
     }
@@ -64,33 +65,43 @@ class TaskController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\Task  $task
-     * @return Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public function edit(Task $task)
+    public function edit(Checklist $checklist, Task $task)
     {
-        //
+        return view('tasks.edit', compact('checklist', 'task'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Task  $task
-     * @return Response
+     * @param \App\Models\Checklist $checklist
+     * @param \App\Http\Requests\SaveTaskRequest $request
+     * @param \App\Models\Task $task
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Request $request, Task $task)
+    public function update(Checklist $checklist, SaveTaskRequest $request, Task $task)
     {
-        //
+        $task->update($request->validated());
+
+        return redirect()->route('admin.checklist-groups.checklists.show', [$checklist->checklist_group_id, $checklist]);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Task  $task
-     * @return Response
+     * @param Checklist $checklist
+     * @param \App\Models\Task $task
+     * @return RedirectResponse
      */
-    public function destroy(Task $task)
+    public function destroy(Checklist $checklist, Task $task)
     {
-        //
+        $checklist->tasks()->where('position', '>', $task->position)->update(
+          ['position' => \DB::raw('position - 1')]
+        );
+
+       $task->delete();
+
+       return redirect()->route('admin.checklist-groups.checklists.show', [$checklist->checklist_group_id, $checklist]);
     }
 }

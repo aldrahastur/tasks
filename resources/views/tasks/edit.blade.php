@@ -5,14 +5,22 @@
         <div class="col-md-12">
             <div class="card">
                 @include('partials.validation-error')
-                <div class="card-header">{{ __('Edit checklist group: '.$checklistGroup['name']) }}</div>
+                <div class="card-header">{{ __('Edit checklist group: '.$task['name']) }}</div>
                 <div class="card-body">
-                    <form method="POST" action="{{ route('admin.checklist-groups.update', $checklistGroup) }}">
+                    <form method="POST" action="{{ route('admin.checklists.tasks.update', [$checklist, $task]) }}">
                         @csrf
                         @method('PUT')
                         <div class="form-group">
                             <label for="name" class="col-form-label">{{ __('Name') }}</label>
-                            <input id="name" type="text" class="form-control " name="name" value="{{ $checklistGroup['name'] }}" required autofocus>
+                            <input id="name" type="text" class="form-control " name="name" value="{{ $task['name'] }}" required autofocus>
+                        </div>
+                        <div class="form-group">
+                            <label for="description" class="col-form-label">{{ __('Description') }}</label>
+                            <textarea id="description" class="form-control" name="description" rows="5">{{ $task['description'] }}</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="due_at" class="col-form-label">{{ __('Due At') }}</label>
+                            <input type="datetime-local" id="due_at" class="form-control" name="due_at" value="{{ $task['due_at'] }}">
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary">

@@ -25,7 +25,9 @@ class SaveTaskRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required'
+            'name' => 'required',
+            'description' => 'nullable',
+            'due_at' => 'nullable|datetime',
         ];
     }
 }
