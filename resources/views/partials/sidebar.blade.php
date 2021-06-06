@@ -32,7 +32,7 @@
                 </a>
                 <ul class="c-sidebar-nav-dropdown-items">
                     @foreach($group->checklists as $checklist)
-                        <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="{{ route('admin.checklist-groups.show', $checklist->id) }}"> {{ $checklist->name }}</a></li>
+                        <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="{{ route('admin.checklist-groups.edit', $checklist->id) }}"> {{ $checklist->name }}</a></li>
                     @endforeach
                 </ul>
             </li>
