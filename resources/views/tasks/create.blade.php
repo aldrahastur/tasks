@@ -14,11 +14,11 @@
                             <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
                         </div>
                         <div class="form-group">
-                            <label for="description" class="col-form-label">{{ __('Name') }}</label>
+                            <label for="description" class="col-form-label">{{ __('Description') }}</label>
                             <textarea id="description" class="form-control" name="description" rows="5"></textarea>
                         </div>
                         <div class="form-group">
-                            <label for="due_at" class="col-form-label">{{ __('Name') }}</label>
+                            <label for="due_at" class="col-form-label">{{ __('Due At') }}</label>
                             <input type="datetime-local" id="due_at" class="form-control" name="due_at" >
                         </div>
                         <div class="form-group">
@@ -31,4 +31,15 @@
             </div>
         </div>
     </div>
+@endsection
+
+
+@section('scripts')
+    <script>
+        ClassicEditor
+            .create( document.querySelector( '#description' ) )
+            .catch( error => {
+                console.error( error );
+            } );
+    </script>
 @endsection
