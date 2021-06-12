@@ -6,7 +6,7 @@
             <div class="card">
                 <div class="card-header">{{ __('Login') }}</div>
                 <div class="card-body">
-                    <form method="POST" action="{{ route('admin.checklist-groups.store') }}">
+                    <form method="POST" action="{{ route('checklist-groups.store') }}">
                         @csrf
                         <div class="form-group">
                             <label for="name" class="col-form-label">{{ __('Name') }}</label>

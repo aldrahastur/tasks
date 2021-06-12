@@ -5,13 +5,15 @@ namespace App\Models;
 use App\Traits\Uuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
+use Laravel\Cashier\Billable;
 
 class Customer extends Model
 {
     use Uuids;
-    use HasFactory, Notifiable, SoftDeletes;
+    use Billable, HasFactory, Notifiable, SoftDeletes;
 
     protected $fillable =[
         'name',
@@ -27,4 +29,9 @@ class Customer extends Model
         'remember_token',
     ];
 
+
+    public function users(): HasMany
+    {
+        return $this->hasMany(User::class);
+    }
 }

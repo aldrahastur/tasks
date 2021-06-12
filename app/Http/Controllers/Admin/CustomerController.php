@@ -32,7 +32,9 @@ class CustomerController extends Controller
 
     public function show(Customer $customer): View
     {
-         return view( 'admin.customers.show', compact('customer') );
+        $users = $customer->users;
+        return view( 'admin.customers.show', compact('customer', 'users') );
+
     }
 
     public function edit(Customer $customer): View

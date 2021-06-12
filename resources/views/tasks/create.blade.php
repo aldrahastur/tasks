@@ -7,7 +7,7 @@
                 @include('partials.validation-error')
                 <div class="card-header">{{ __('New Task in ') }} {{ $checklist->name }}</div>
                 <div class="card-body">
-                    <form method="POST" action="{{ route('admin.checklists.tasks.store', $checklist) }}">
+                    <form method="POST" action="{{ route('checklists.tasks.store', $checklist) }}">
                         @csrf
                         <div class="form-group">
                             <label for="name" class="col-form-label">{{ __('Name') }}</label>

@@ -7,7 +7,7 @@
                 @include('partials.validation-error')
                 <div class="card-header">{{ __('Edit checklist group: '.$checklistGroup['name']) }}</div>
                 <div class="card-body">
-                    <form method="POST" action="{{ route('admin.checklist-groups.update', $checklistGroup) }}">
+                    <form method="POST" action="{{ route('checklist-groups.update', $checklistGroup) }}">
                         @csrf
                         @method('PUT')
                         <div class="form-group">

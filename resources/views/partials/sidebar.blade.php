@@ -17,7 +17,7 @@
         @include('partials.admin-menu')
 
         <li class="c-sidebar-nav-title">{{ __('Checklist Groups')}}</li>
-        <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="{{ route('admin.checklist-groups.create') }}">
+        <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="{{ route('checklist-groups.create') }}">
                 <div class="c-sidebar-nav-icon">
                     <i class="fas fa-folder-plus"></i>
                 </div> {{ __('New checklist Group') }}</a>
@@ -32,7 +32,7 @@
                 </a>
                 <ul class="c-sidebar-nav-dropdown-items">
                     <li class="c-sidebar-nav-item">
-                        <a class="c-sidebar-nav-link" href="{{ route('admin.checklist-groups.checklists.create', $group) }}">
+                        <a class="c-sidebar-nav-link" href="{{ route('checklist-groups.checklists.create', $group) }}">
                             <div class="c-sidebar-nav-icon">
                                 <i class="fas fa-plus"></i>
                             </div>
@@ -41,7 +41,7 @@
                     </li>
                     @foreach($group->checklists as $checklist)
                         <li class="c-sidebar-nav-item">
-                            <a class="c-sidebar-nav-link" href="{{ route('admin.checklist-groups.checklists.show', [$group,$checklist]) }}">
+                            <a class="c-sidebar-nav-link" href="{{ route('checklist-groups.checklists.show', [$group,$checklist]) }}">
                                 <div class="c-sidebar-nav-icon">
                                     <i class="fas fa-list-ul"></i>
                                 </div>
@@ -50,7 +50,7 @@
                         </li>
                     @endforeach
                     <li class="c-sidebar-nav-item">
-                        <a class="c-sidebar-nav-link" href="{{ route('admin.checklist-groups.edit', $group->id) }}">
+                        <a class="c-sidebar-nav-link" href="{{ route('checklist-groups.edit', $group->id) }}">
                             <div class="c-sidebar-nav-icon">
                                 <i class="fas fa-id-card"></i>
                             </div>

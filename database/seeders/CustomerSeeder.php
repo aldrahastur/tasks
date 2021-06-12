@@ -15,13 +15,8 @@ class CustomerSeeder extends Seeder
     public function run()
     {
         Customer::create([
-            'name' => 'tivents',
-            'email' => 'wh@tivents.de'
-        ]);
-        Customer::create([
             'name' => 'kriteas',
             'email' => 'willi@helwig.family'
         ]);
-
     }
 }

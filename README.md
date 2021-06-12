@@ -5,6 +5,7 @@ It is in progress no features included yet
 
 Based on https://laraveldaily.teachable.com/p/creating-laravel-checklister
 
+
 # Features
 [checkbox:unchecked] Auth
 [x] Checklist Groups
@@ -23,3 +24,4 @@ Based on https://laraveldaily.teachable.com/p/creating-laravel-checklister
 * Livewire
 * Fontawesome Free
 * Gravatar for Users
+* https://github.com/KnpLabs/php-github-api

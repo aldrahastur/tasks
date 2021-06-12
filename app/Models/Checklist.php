@@ -15,6 +15,7 @@ class Checklist extends Model
         'checklist_group_id',
         'user_id',
         'name',
+        'repo_name',
     ];
 
 

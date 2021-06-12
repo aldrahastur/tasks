@@ -26,6 +26,7 @@
                                 <td>{{$customer->email}}</td>
                                 <td>
                                     <div class="row">
+                                        <a class="btn btn-success btn-sm" href="{{ route('admin.customers.show', [$customer]) }}">{{ __('Show') }}</a>
                                         <a class="btn btn-primary btn-sm" href="{{ route('admin.customers.edit', [$customer]) }}">{{ __('Edit') }}</a>
                                         <form action="{{ route('admin.customers.destroy', [$customer]) }}" method="POST">
                                             @csrf

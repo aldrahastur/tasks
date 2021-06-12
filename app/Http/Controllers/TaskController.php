@@ -27,7 +27,7 @@ class TaskController extends Controller
         $position = $checklist->tasks()->max('position') + 1;
         $checklist->tasks()->create($request->validated() + ['position' => $position, 'user_id' => auth()->id()]);
 
-        return redirect()->route('admin.checklist-groups.checklists.show', [$checklist->checklist_group_id, $checklist]);
+        return redirect()->route('checklist-groups.checklists.show', [$checklist->checklist_group_id, $checklist]);
     }
 
     public function show(Checklist $checklist, Task $task) : View
@@ -44,7 +44,7 @@ class TaskController extends Controller
     {
         $task->update($request->validated());
 
-        return redirect()->route('admin.checklist-groups.checklists.show', [$checklist->checklist_group_id, $checklist]);
+        return redirect()->route('checklist-groups.checklists.show', [$checklist->checklist_group_id, $checklist]);
     }
 
     public function destroy(Checklist $checklist, Task $task) : RedirectResponse
@@ -55,6 +55,6 @@ class TaskController extends Controller
 
        $task->delete();
 
-       return redirect()->route('admin.checklist-groups.checklists.show', [$checklist->checklist_group_id, $checklist]);
+       return redirect()->route('checklist-groups.checklists.show', [$checklist->checklist_group_id, $checklist]);
     }
 }
