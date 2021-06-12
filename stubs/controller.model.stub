@@ -14,7 +14,7 @@ class {{ class }} extends Controller
     public function index(): View
     {
         ${{modelVariable}}s = {{model}}::all();
-        return view( '{{ modelVariable }}.index', compact('{{modelVariable}}s') );
+        return view( '{{ modelVariable }}s.index', compact('{{modelVariable}}s') );
     }
 
     public function create(): View

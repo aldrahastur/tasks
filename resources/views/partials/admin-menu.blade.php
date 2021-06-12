@@ -9,6 +9,8 @@
         </a>
         <ul class="c-sidebar-nav-dropdown-items">
             <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="{{ route('admin.pages.index') }}"> {{ __('Pages') }}</a></li>
+            <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="{{ route('admin.users.index') }}"> {{ __('Users') }}</a></li>
+            <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="{{ route('admin.customers.index') }}"> {{ __('Customers') }}</a></li>
         </ul>
     </li>
 @endif

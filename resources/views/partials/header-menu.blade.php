@@ -18,6 +18,13 @@
 
 </ul>
 <ul class="c-header-nav">
+    <li class="c-header-nav-item mx-2">
+        <a class="c-header-nav-link" href="{{ route('welcomeUserPage') }}">
+            <div class="c-icon">
+                <i class="fas fa-question"></i>
+            </div>
+        </a>
+    </li>
     <li class="c-header-nav-item dropdown d-md-down-none mx-2"><a class="c-header-nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
             <div class="c-icon">
                 <i class="fas fa-bell"></i>
@@ -114,7 +121,13 @@
             <div class="c-avatar"><img class="c-avatar-img" src="{{ Gravatar::src(Auth()->user()->email) }}" alt="{{ Auth()->user()->email }}"></div>
         </a>
         <div class="dropdown-menu dropdown-menu-right pt-0">
-            <div class="dropdown-header bg-light py-2"><strong>Account</strong></div><a class="dropdown-item" href="#">
+            <div class="dropdown-header bg-light py-2"><strong>Account</strong></div>
+            <a class="dropdown-item" href="#">
+                <div class="c-icon mfe-2">
+                    <i class="fas fa-user"></i>
+                </div> Profile
+            </a>
+            <a class="dropdown-item" href="#">
                 <div class="c-icon mfe-2">
                     <use xlink:href="vendors/@coreui/icons/div/free.div#cil-bell"></use>
                 </div> Updates<span class="badge badge-info mfs-auto">42</span></a><a class="dropdown-item" href="#">
@@ -127,20 +140,32 @@
                 <div class="c-icon mfe-2">
                     <use xlink:href="vendors/@coreui/icons/div/free.div#cil-comment-square"></use>
                 </div> Comments<span class="badge badge-warning mfs-auto">42</span></a>
-            <div class="dropdown-header bg-light py-2"><strong>Settings</strong></div><a class="dropdown-item" href="#">
-                <div class="c-icon mfe-2">
-                    <use xlink:href="vendors/@coreui/icons/div/free.div#cil-user"></use>
-                </div> Profile</a><a class="dropdown-item" href="#">
-                <div class="c-icon mfe-2">
-                    <use xlink:href="vendors/@coreui/icons/div/free.div#cil-settings"></use>
-                </div> Settings</a><a class="dropdown-item" href="#">
-                <div class="c-icon mfe-2">
-                    <use xlink:href="vendors/@coreui/icons/div/free.div#cil-credit-card"></use>
-                </div> Payments<span class="badge badge-secondary mfs-auto">42</span></a><a class="dropdown-item" href="#">
-                <div class="c-icon mfe-2">
-                    <use xlink:href="vendors/@coreui/icons/div/free.div#cil-file"></use>
-                </div> Projects<span class="badge badge-primary mfs-auto">42</span></a>
-            <div class="dropdown-divider"></div>
+            @if(\Illuminate\Support\Facades\Auth::user()->is_admin)
+                <div class="dropdown-header bg-light py-2"><strong>Settings</strong></div>
+                <a class="dropdown-item" href="#">
+                    <div class="c-icon mfe-2">
+                        <i class="fas fa-user"></i>
+                    </div> Profile
+                </a>
+                <a class="dropdown-item" href="{{ route('userProfile') }}">
+                    <div class="c-icon mfe-2">
+                        <i class="fas fa-cogs"></i>
+                    </div> Settings
+                </a>
+                <a class="dropdown-item" href="#">
+                    <div class="c-icon mfe-2">
+                        <i class="fas fa-file-invoice-dollar"></i>
+                    </div> Payments<span class="badge badge-secondary mfs-auto">42</span>
+                </a>
+                <a class="dropdown-item" href="#">
+                    <div class="c-icon mfe-2">
+                        <use xlink:href="vendors/@coreui/icons/div/free.div#cil-file"></use>
+                    </div> Projects<span class="badge badge-primary mfs-auto">42</span>
+                </a>
+            @endif
+            <div class="dropdown-divider">
+
+            </div>
             <a class="dropdown-item" href="#">
                 <div class="c-icon mfe-2">
                     <use xlink:href="vendors/@coreui/icons/div/free.div#cil-lock-locked"></use>
@@ -152,7 +177,7 @@
                 </div> Logout
             </a>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-            @csrf
+                @csrf
             </form>
         </div>
     </li>

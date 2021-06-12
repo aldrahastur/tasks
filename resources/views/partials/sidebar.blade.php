@@ -19,23 +19,44 @@
         <li class="c-sidebar-nav-title">{{ __('Checklist Groups')}}</li>
         <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="{{ route('admin.checklist-groups.create') }}">
                 <div class="c-sidebar-nav-icon">
-                    <i class="fas fa-plus"></i>
+                    <i class="fas fa-folder-plus"></i>
                 </div> {{ __('New checklist Group') }}</a>
         </li>
         @foreach( \App\Models\ChecklistGroup::with('checklists')->get() as $group)
             <li class="c-sidebar-nav-dropdown">
                 <a class="c-sidebar-nav-dropdown-toggle" href="#">
                     <div class="c-sidebar-nav-icon">
-                        <i class="fas fa-puzzle-piece"></i>
+                        <i class="fas fa-folder-open"></i>
                     </div>
                     {{ $group->name }}
                 </a>
                 <ul class="c-sidebar-nav-dropdown-items">
-                    <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="{{ route('admin.checklist-groups.checklists.create', $group) }}"> {{ __('New Checklist') }}</a></li>
+                    <li class="c-sidebar-nav-item">
+                        <a class="c-sidebar-nav-link" href="{{ route('admin.checklist-groups.checklists.create', $group) }}">
+                            <div class="c-sidebar-nav-icon">
+                                <i class="fas fa-plus"></i>
+                            </div>
+                            {{ __('New Checklist') }}
+                        </a>
+                    </li>
                     @foreach($group->checklists as $checklist)
-                        <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="{{ route('admin.checklist-groups.checklists.show', [$group,$checklist]) }}"> {{ $checklist->name }}</a></li>
+                        <li class="c-sidebar-nav-item">
+                            <a class="c-sidebar-nav-link" href="{{ route('admin.checklist-groups.checklists.show', [$group,$checklist]) }}">
+                                <div class="c-sidebar-nav-icon">
+                                    <i class="fas fa-list-ul"></i>
+                                </div>
+                                {{ $checklist->name }}
+                            </a>
+                        </li>
                     @endforeach
-                    <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="{{ route('admin.checklist-groups.edit', $group->id) }}">{{ __('Show ') }}  {{ $group->name }}</a></li>
+                    <li class="c-sidebar-nav-item">
+                        <a class="c-sidebar-nav-link" href="{{ route('admin.checklist-groups.edit', $group->id) }}">
+                            <div class="c-sidebar-nav-icon">
+                                <i class="fas fa-id-card"></i>
+                            </div>
+                            {{ __('Show ') }}  {{ $group->name }}
+                        </a>
+                    </li>
                 </ul>
             </li>
         @endforeach

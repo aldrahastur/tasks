@@ -25,7 +25,7 @@ class TaskController extends Controller
     public function store(Checklist $checklist, SaveTaskRequest $request): RedirectResponse
     {
         $position = $checklist->tasks()->max('position') + 1;
-        $checklist->tasks()->create($request->validated() + ['position' => $position]);
+        $checklist->tasks()->create($request->validated() + ['position' => $position, 'user_id' => auth()->id()]);
 
         return redirect()->route('admin.checklist-groups.checklists.show', [$checklist->checklist_group_id, $checklist]);
     }

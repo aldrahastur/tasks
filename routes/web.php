@@ -28,7 +28,11 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::group(['middleware'=>'auth'], function () {
+    Route::get('profile', [\App\Http\Controllers\ProfileController::class, 'index'])->name('userProfile');
+    Route::get('welcome', [\App\Http\Controllers\PageController::class, 'welcome'])->name('welcomeUserPage');
     Route::group(['prefix'=> 'admin', 'as' => 'admin.', 'middleware'=> 'admin'], function () {
+        Route::resource('customers', \App\Http\Controllers\Admin\CustomerController::class);
+        Route::resource('users', \App\Http\Controllers\Admin\UserController::class);
         Route::resource('pages', PageController::class);
         Route::resource('roles', RoleController::class);
         Route::resource('permissions', PermissionController::class);

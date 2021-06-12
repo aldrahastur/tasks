@@ -37,8 +37,8 @@ class ChecklistGroupController extends Controller
      */
     public function store(StoreChecklistGroupRequest $request)
     {
-        ChecklistGroup::create($request->validated());
-        return redirect()->route('home');
+        ChecklistGroup::create($request->validated() + ['user_id' => auth()->id()]);
+        return redirect()->route('welcomeUserPage');
     }
 
     /**
@@ -73,7 +73,7 @@ class ChecklistGroupController extends Controller
     public function update(StoreChecklistGroupRequest $request, $id)
     {
         ChecklistGroup::update($request->validated());
-        return redirect()->route('home');
+        return redirect()->route('welcomeUserPage');
     }
 
     /**
@@ -85,6 +85,6 @@ class ChecklistGroupController extends Controller
     public function destroy(ChecklistGroup $checklistGroup)
     {
         $checklistGroup->delete();
-        return redirect()->route('home');
+        return redirect()->route('welcomeUserPage');
     }
 }
